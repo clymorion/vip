@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clymorion – VIP Package</title>
+<style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #000;
+        color: #fff;
+        overflow-x: hidden;
+    }
+    a {color: inherit; text-decoration: none;}
+    img {max-width: 100%; display: block;}
+
+    :root {
+        --gold: #d4af37;
+        --gold-dark: #b38b2b;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(8px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(212,175,55,0.3);
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--gold);
+    }
+    .btn {
+        background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #000;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: inline-block;
+    }
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(212,175,55,0.5);
+    }
+
+    /* Hero */
+    .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+    }
+    .hero video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.65);
+        z-index: -1;
+    }
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .hero-content {
+        position: relative;
+        max-width: 800px;
+    }
+    .hero h1 {
+        font-size: 3rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        color: #ddd;
+        margin-bottom: 2rem;
+    }
+    .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    /* Center VIP Access section and pricing */
+    section#pricing {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 5rem 1rem 2rem;
+    }
+    section#pricing h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      font-size: 2rem;
+    }
+
+    /* Assets Grid */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    .card {
+        background: #111;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(212,175,55,0.15);
+        transform: translateY(40px);
+        opacity: 0;
+        transition: all 0.6s ease;
+    }
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .card:hover img {
+        transform: scale(1.05);
+    }
+    .card-content {padding: 1.5rem;}
+    .card h3 {color: var(--gold); margin-bottom: 0.5rem;}
+    .card p {color: #bbb; font-size: 0.95rem;}
+    .card button {margin-top: 1rem; width: 100%; font-size: 1.1rem;}
+    .card.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Pricing Box */
+    .pricing {
+        background: linear-gradient(145deg, #111, #000);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        border: 1px solid rgba(212,175,55,0.4);
+        box-shadow: 0 0 25px rgba(212,175,55,0.15);
+        margin-top: -3rem;
+    }
+    .price {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+    }
+    .pricing .btn {
+        margin-top: 1.5rem;
+    }
+
+    footer {
+        background: #0a0a0a;
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #888;
+        border-top: 1px solid rgba(212,175,55,0.3);
+    }
+
+    @media(max-width:768px){
+        .hero h1 {font-size: 2.2rem;}
+        .hero p {font-size: 1rem;}
+        header {padding: 1rem;}
+        .btn {font-size: 1rem; padding: 0.6rem 1.4rem;}
+        section#pricing {
+          max-width: 100%;
+          padding: 3rem 1rem 2rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Clymorion</div>
+    <a class="gumroad-button btn" href="https://clymor.gumroad.com/l/vip">Sign Up</a>
+</header>
+
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="https://cdn.pixabay.com/vimeo/421687486/video-42854-small.mp4" type="video/mp4" />
+    </video>
+    <div id="particles-js"></div>
+    <div class="hero-content">
+        <h1>Elite VFX & Editing Package</h1>
+        <p>Unlock premium cinematic transitions, high-impact sound FX, and luxury-grade LUTs — all in one vault.</p>
+        <div class="hero-buttons">
+            <a class="gumroad-button btn" href="https://clymor.gumroad.com/l/vip">Get Full Access</a>
+            <button class="btn" id="whatsInside">What's Inside</button>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    <h2>VIP Access</h2>
+    <div class="pricing">
+        <div class="price">
+          <span style="text-decoration: line-through; font-size:1.5rem; color:#aaa;">$50</span>
+          <br />
+          <span style="font-weight:bold; font-size:2.8rem; color: var(--gold);"> $25 </span>
+          <br />
+          <span style="font-size: 0.9rem; color:#ddd;">(50% OFF)</span>
+        </div>
+        <p>One-time purchase • Instant download • Lifetime updates</p>
+        <a class="gumroad-button btn" href="https://clymor.gumroad.com/l/vip">Buy Now</a>
+    </div>
+</section>
+
+<section id="assets">
+    <h2>Included in the Package</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1593011951081-7ec9d32c78fb?auto=format&fit=crop&w=800&q=60" />
+            <div class="card-content">
+                <h3>Cinematic Transitions</h3>
+                <p>Seamless motion effects to transform your edits instantly.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606156426310-5dfdb5c0e547?auto=format&fit=crop&w=800&q=60" />
+            <div class="card-content">
+                <h3>Sound FX</h3>
+                <p>Exclusive, high-quality sound effects for powerful storytelling.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1605978700648-4d73f6a6c2e3?auto=format&fit=crop&w=800&q=60" />
+            <div class="card-content">
+                <h3>Pro LUTs</h3>
+                <p>Professional cinematic LUTs for perfect color grading.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    Clymorion • © 2025 • Contact: hello@example.com
+</footer>
+
+<!-- Particles.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {"value": 60},
+            "size": {"value": 2},
+            "color": {"value": "#d4af37"},
+            "move": {"speed": 1},
+            "line_linked": {"enable": true, "color": "#d4af37"}
+        }
+    });
+
+    // Smooth Scroll with Offset for "What's Inside" only
+    function smoothScrollTo(targetId) {
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+
+    document.getElementById("whatsInside").addEventListener("click", () => {
+        smoothScrollTo("#assets");
+    });
+
+    // Scroll Animation for Cards
+    const cards = document.querySelectorAll('.card');
+    const revealCards = () => {
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 50){
+                card.classList.add('show');
+            }
+        });
+    };
+    window.addEventListener('scroll', revealCards);
+    revealCards();
+</script>
+
+<!-- Gumroad Overlay Script -->
+<script src="https://gumroad.com/js/gumroad.js"></script>
+
+<!-- Auto-open Gumroad checkout if ?buy is in the URL -->
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has("buy")) {
+            setTimeout(() => {
+                window.open("https://clymor.gumroad.com/l/vip", "Gumroad Checkout", "width=500,height=700");
+            }, 800);
+        }
+    });
+</script>
+
+</body>
+</html>
